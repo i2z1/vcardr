@@ -20,6 +20,8 @@ knitr::opts_chunk$set(
 
 Read/write VCF contact files with R
 
+## Description
+
 Imports data from vcf vcard format into R dataframe, basic manipulations with contacts data and write back into vsf vcard file format, which can be imported with various contact apps.
 
 Supports VCARD 3.0 file format, including these fields:

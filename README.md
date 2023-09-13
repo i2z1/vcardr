@@ -8,6 +8,8 @@
 
 Read/write VCF contact files with R
 
+## Description
+
 Imports data from vcf vcard format into R dataframe, basic manipulations
 with contacts data and write back into vsf vcard file format, which can
 be imported with various contact apps.
