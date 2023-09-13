@@ -4,7 +4,7 @@ Title: Converting to/from vcf vcard format
 Version: 0.1.0
 Author: i2z1@ddslab.ru
 Maintainer: Ivan <i2z1@ddslab.ru>
-Description: Imports datafrom vcf vcard format into R dataframe, basic manipulations with contacts data and write back into vsf vcard file format, which can be imported with various contact apps.
+Description: Imports data from vcf vcard format into R dataframe, basic manipulations with contacts data and write back into vsf vcard file format, which can be imported with various contact apps.
 License: AGPL (>= 3)
 Encoding: UTF-8
 LazyData: true
