@@ -1,7 +1,7 @@
 Package: vcardr
 Type: Package
 Title: Converting to/from vcf vcard format
-Version: 0.1.0
+Version: 0.1.1
 Author: i2z1@ddslab.ru
 Maintainer: Ivan <i2z1@ddslab.ru>
 Description: Imports data from vcf vcard format into R dataframe, basic manipulations with contacts data and write back into vsf vcard file format, which can be imported with various contact apps.

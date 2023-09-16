@@ -112,3 +112,46 @@ vcard_item2df <- function(v_item) {
   }
   return(res_df)
 }
+
+
+#' Import JSON (from Telegram phone data export)
+#'
+#' @param tlgJSON path to telegram JSON file
+#'
+#' @return dataframe with Telegram address book
+#' @export
+#' @import dplyr
+#' @importFrom jsonlite fromJSON
+#'
+#' @examples df <- import_telegramJSON("telegram_export.json")
+import_telegramJSON <- function(tlgJSON){
+  df <- jsonlite::fromJSON(file(tlgJSON))
+
+  contact_df <- df$contacts$list
+
+  res <- contact_df %>%
+    mutate(TEL = prettify_phone_no(phone_number)) %>%
+    mutate(last_name = last_name %>% trimws()) %>%
+    mutate(first_name = first_name %>% trimws())
+
+  return(res)
+}
+
+#' Removes leading zeros, spaces in phone number
+#'
+#' @param phone_str phone number string
+#'
+#' @return prettified string
+#' @import dplyr stringr tibble
+#'
+prettify_phone_no <- function(phone_str){
+  res <- phone_str %>%
+    tibble(tel = .) %>%
+    mutate(tel_p = stringr::str_replace(tel, "^00", "+")) %>%
+    mutate(tel_p = stringr::str_replace(tel_p, "^\\+8", "+7")) %>%
+    mutate(tel_p = stringr::str_replace(tel_p, "^89", "\\+79")) %>%
+    mutate(tel_p = stringr::str_replace_all(tel_p, "\\s", "")) %>%
+    .$tel_p
+
+  return(res)
+}
