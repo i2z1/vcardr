@@ -35,6 +35,11 @@ vcard_item2df <- function(v_item) {
     .[[1]] %>%
     tibble(lns = .)
 
+  # if empty vcard
+  if(!any(stringr::str_detect(vdf$lns, "^FN:|^N:"))) {
+    return(NULL)
+  }
+
   v_colon <- vdf %>%
     filter(stringr::str_detect(lns, "^FN:|^N:|^UID:|^VERSION:|^BDAY:")) %>%
     tidyr::separate_wider_delim(., lns, delim = ":", names = c("key", "value")) %>%
@@ -154,4 +159,8 @@ prettify_phone_no <- function(phone_str){
     .$tel_p
 
   return(res)
+}
+
+fix_improper_notation <- function(v_item){
+
 }
