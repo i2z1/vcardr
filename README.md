@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggonion <img src="man/figures/hex.png" width="140px" height="140px" align="right" style="padding-left:10px;" />
+# vcardr <img src="man/figures/hex.png" width="140px" height="140px" align="right" style="padding-left:10px;" />
 
 # vcardr
 
